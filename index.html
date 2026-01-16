@@ -9,15 +9,24 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      display: grid;
-      place-items: center;
+
+      /* Layout */
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
       min-height: 100vh;
+      padding: clamp(16px, 4vh, 64px) 16px;
+
+      /* Background */
       background:
         linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
         url("./dodgerstadium.jpg") center / cover no-repeat fixed;
       background-attachment: fixed;
-      overflow: hidden;
-      position: relative;
+
+      /* Scrolling */
+      overflow-x: hidden;
+      overflow-y: auto;
+
       color: #e8eef6;
     }
     /* Decorative background layers */
@@ -26,10 +35,12 @@
     
 
     .card {
-      width: min(720px, calc(100% - 32px));
+      width: min(1225px, calc(100% - 32px));
       background: transparent;
       padding: 24px;
       text-align: center;
+      transform: scale(0.8);
+      transform-origin: top center;
     }
     h1 {
       margin: 0 0 26px;
@@ -61,6 +72,17 @@
       background: #ffffff;
       opacity: 0.75;
       border-radius: 1px;
+    }
+    @media (max-width: 560px) {
+      .big-pair {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .divider {
+        width: 70%;
+        height: 2px;
+      }
     }
     .meta {
       display: flex;
